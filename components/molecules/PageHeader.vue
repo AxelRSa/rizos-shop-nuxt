@@ -1,6 +1,6 @@
 <template lang="pug">
 header.header
-  LogoRizoShop.header__logo
+  IconLogoRizoShop.header__logo
   h2.header__title {{ title }}
 </template>
 

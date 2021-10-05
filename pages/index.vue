@@ -1,8 +1,8 @@
 <template lang="pug">
 .home
   PageHeader(title="Inicio")
-  Hero
-  Ofertas
+  HomeHero
+  HomeOfertas
 </template>
 
 <script>

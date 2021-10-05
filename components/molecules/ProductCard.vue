@@ -1,9 +1,9 @@
 <template lang="pug">
 .card
   img.card__image(:src="image", alt="altText")
-  h2.card__name(:text="productName")
+  h2.card__name {{ productName }}
   .card__tag-container
-    a.card__tag(href="#")(v-for="tag in tags", :key="tag.key") {{ tag }}
+    a.card__tag(href="#", v-for="tag in tags", :key="tag.key") {{ tag }}
   .card__footer
     .card__price-container
       .card__previus-price ${{ previusPrice }}
@@ -11,12 +11,19 @@
         .card__actual-price ${{ price }}
         .card__discount %{{ discount }} DESC
     a.card__button(href="#")
-      Cart.card__cart
+      IconCart.card__cart
 </template>
 
 <script>
 export default {
-  props: ["image", "productName", "tags", "previusPrice", "price", "discount"],
+  props: {
+    image: String,
+    productName: String,
+    tags: Array,
+    previusPrice: Number,
+    price: Number,
+    discount: Number,
+  },
 };
 </script>
 
@@ -24,30 +31,33 @@ export default {
 .card {
   border-radius: 30px;
   background-color: var(--background-color);
-  padding: 20px;
+  padding: 15px;
   width: 250px;
-  border: 1px solid rgba(125, 125, 125, 0.2);
+  border: 1px solid rgba(var(--gray-1), 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   &__image {
     height: 90px;
     width: 100%;
     object-fit: contain;
   }
   &__name {
-    margin: 10px 0;
     text-align: center;
+    font-size: 16px;
   }
   &__tag-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 5px;
   }
   &__tag {
-    padding: 2px 6px;
+    padding: 4px 8px;
     font-size: 13px;
-    margin: 0 5px;
     border-radius: 30px;
-    background-color: var(--principal-color-v1);
+    background-color: rgba(var(--principal-color-700));
     color: #fff;
     text-decoration: none;
     transition: filter 0.3s;
@@ -64,18 +74,18 @@ export default {
 
   &__previus-price {
     font-size: 14px;
-    color: var(--gray1);
+    color: rgba(var(--gray-1));
     text-decoration: line-through;
   }
   &__price {
     display: flex;
   }
   &__actual-price {
-    font-size: 50px;
+    font-size: 35px;
   }
   &__discount {
-    font-size: 13px;
-    color: var(--principal-color);
+    font-size: 12px;
+    color: rgba(var(--principal-color));
   }
   &__button {
     display: flex;
@@ -84,14 +94,15 @@ export default {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--principal-color);
+    background-color: rgba(var(--principal-color));
     transition: filter 0.3s;
+    padding: 10px;
     &:active {
       filter: brightness(110%);
     }
   }
   &__cart {
-    color: #fff;
+    color: rgba(var(--static-background));
   }
 }
 </style>

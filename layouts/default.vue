@@ -1,6 +1,6 @@
 <template lang="pug">
 .app(:class="{ 'app--dark': theme }")
-  Navbar(@emitDefaultChangeTheme="emitChangeTheme", :theme="theme")
+  TheNavbar(@emitDefaultChangeTheme="emitChangeTheme", :theme="theme")
   Nuxt
 </template>
 
@@ -50,6 +50,7 @@ export default {
   --static-background: 255, 255, 255;
   --principal-color: 76, 175, 80;
   --principal-color-700: 46, 125, 50;
+  --gray-1: 130, 130, 130;
   // dinamic colors
   --dinamic-text: 0, 0, 0;
   --dinamic-background: 255, 255, 255;
@@ -59,7 +60,7 @@ export default {
   // css
   background-color: rgb(var(--dinamic-background));
   color: rgb(var(--dinamic-text));
-  transition: color 1s, background-color 1s;
+  overflow-x: hidden;
   // dark theme
   &--dark {
     --dinamic-text: 255, 255, 255;

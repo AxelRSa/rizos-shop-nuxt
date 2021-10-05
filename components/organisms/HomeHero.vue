@@ -5,7 +5,7 @@
     href="https://wa.me/529984034867/?text=Hola, entré a su página web y quería tener más información",
     target="_blank"
   ) Whatsapp
-    Whatsapp.hero__icon
+    IconWhatsapp.hero__icon
 </template>
 
 <script>

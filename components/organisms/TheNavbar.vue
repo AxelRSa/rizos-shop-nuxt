@@ -1,20 +1,20 @@
 <template lang="pug">
 .nav
   nav.nav__icons
-    .nav__icon: ArrowTop
-    NuxtLink.nav__icon(to="/carrito-de-compras"): Cart
+    .nav__icon: IconArrowTop
+    NuxtLink.nav__icon(to="/carrito-de-compras"): IconCart
     .nav__icon(@click="toggleMenu()")
       transition(name="fade")
-        Menu.nav__menu(v-show="!MenuState")
+        IconMenu.nav__menu(v-show="!MenuState")
       transition(name="fade") 
-        Close.nav__menu(v-show="MenuState")
+        IconClose.nav__menu(v-show="MenuState")
   transition(name="fade")
     nav.nav__links(v-show="MenuState", @click="closeMenu()")
-      NuxtLink.nav__logo(to="/"): LogoRizoShop
+      NuxtLink.nav__logo(to="/"): IconLogoRizoShop
       button.nav__toggle-theme(@click="changeTheme()")
         .nav__toggle(:class="{ 'nav__toggle--left': theme }")
-          Moon.nav__toggle-icon(v-if="theme")
-          Sun.nav__toggle-icon(v-if="!theme")
+          IconMoon.nav__toggle-icon(v-if="theme")
+          IconSun.nav__toggle-icon(v-if="!theme")
       NuxtLink.nav__link(to="/") Inicio
       NuxtLink.nav__link(to="/productos") Productos
       NuxtLink.nav__link(to="/contacto") Contacto
